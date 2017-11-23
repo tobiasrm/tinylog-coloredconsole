@@ -53,17 +53,17 @@ EXAMPLE:
 ### Example 1: log-level coloring
 As kind of default use case, the log-level itself is colorized. Note that the postTag is not needed
 
-![](https://github.com/tobiasrm/tinylog-singlelevel-cw/blob/master/files/screenshot_coloring_default.png?raw=true) 
+![](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/screenshot_coloring_default.png?raw=true) 
 
 ### Example 2: log-level coloring with decorators
 The log-level has some "decorators" to visually highlight the information. In the example, the log-level tags are 'misused' in the log-content itself. Although possible, the custom tags are made for this.
 
-![](https://github.com/tobiasrm/tinylog-singlelevel-cw/blob/master/files/screenshot_coloring_decorators.png?raw=true) 
+![](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/screenshot_coloring_decorators.png?raw=true) 
 
 ### Example 3: custom tag coloring
 Five custom tags are available as shown below with five example logs. NOTE that the replacement is done sequentially (tag 1 to 5). Thus, the custom tag 1 can insert strings that contain tags that are processed afterwards.
 
-![](https://github.com/tobiasrm/tinylog-singlelevel-cw/blob/master/files/screenshot_coloring_custom_tags.png?raw=true) 
+![](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/screenshot_coloring_custom_tags.png?raw=true) 
 
 ## Try it out
 You can reproduce the colored log demo by running  `mvn clean install`  and then  `java -jar target/tinylog-coloredconsole-1.3.1-executable.jar` 
@@ -76,7 +76,7 @@ Uncomment the desired logging of the main method and corresponding [tinylog.prop
 
 ## Comments
 - **Versioning**. The tinylog-coloredconsole versioning uses the original Tinylog versions for clarity about the underlying libary, e.g. tinylog-coloredconsole in version 1.3.1 uses Tinylog v1.3.1 (see [pom.xml](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/pom.xml)). If needed, you may simply exclude it and use another Tinylog version.
-- **Remove custom tags for file writing**. Your source-code generated custom tags are processed for the console but are still written to file. In order to remove those tags, see the corresponding [tinylog-tagging-filewriter](https://github.com/tobiasrm/tinylog-taggingfilewriter) and [tinylog-tagging-rollingfilewriter](https://github.com/tobiasrm/tinylog-tagging-rollingfilewriter). They allow you to define 10 custom tags and replacements (e.g. the five pre-/custom tags of used by tinylog-coloredconsole).
+- **Remove custom tags for file writing**. Your source-code generated custom tags are processed for the console but are still written to file. In order to remove those tags, see the corresponding [tinylog-tagging-filewriter](https://github.com/tobiasrm/tinylog-tagging-filewriter) and [tinylog-tagging-rollingfilewriter](https://github.com/tobiasrm/tinylog-tagging-rollingfilewriter). They allow you to define 10 custom tags and replacements (e.g. the five pre-/custom tags of used by tinylog-coloredconsole).
 
 
 ## Other Tinylog writer extensions
