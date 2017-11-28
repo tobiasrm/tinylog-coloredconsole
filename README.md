@@ -1,52 +1,52 @@
-# Tinylog ColoredConsole
-**A [Tinylog](http://www.tinylog.org) console writer extension colored log levels and arbitrary data through custom tags.**
+# tinylog coloredconsole
+**A [tinylog](http://www.tinylog.org) console writer extension colored log levels and arbitrary data through custom tags.**
 
 
 ## Features
-Tinylog ColoredConsole extends Tinylog with the `coloredconsole` console writer to enable colorized log outputs as shown hereafter. The colorization is done using ASCII codes provided in the tinylog config file.
+The tinylog coloredconsole extends tinylog with the `coloredconsole` console writer to enable colorized log outputs as shown hereafter. The colorization is done using ASCII codes provided in the tinylog config file.
 
-Note that you can already colorize the default tinylog console output by manually adding ASCII codes to the .format field (see [Tinylog Logging Format](http://www.tinylog.org/configuration#format) for general formatting), e.g. for timestamp or code reference (see example code of this project).
+Note that you can already colorize the default tinylog console output by manually adding ASCII codes to the .format field (see [tinylog "Logging Format"](http://www.tinylog.org/configuration#format) documentation for general formatting), e.g. for timestamp or code reference (see example code of this project).
 
 ### Log-level coloring
 **Colorize the log-level (e.g. info, warn) by defining pre-/post level tags** that are provided in the tinylog .format element. Strings in the pre/post<level> (e.g. preInfo) parameter will replace the corresponding tag. For example, the listing below defines the "[[preLevelTag]]", which is used in the .format parameter, and replaced by "\u001B[32m" (green foreground color). In this example, the postInfo tag resets the color (with "\u001B[0m") to the light gray foreground color.
 
 ```  
 DEFINITION:
-   tinylog.writer                         = coloredconsole
-   tinylog.writerColConsole.format        = <log format - see tinylog documentation>  
-   tinylog.writerColConsole.preLevelTag   = <pre level custom tag>
-   tinylog.writerColConsole.postLevelTag  = <post level custom tag>
-   tinylog.writerColConsole.preInfo       = <pre level custom tag replacement>
-   tinylog.writerColConsole.postInfo      = <post level custom tag replacement>
+   tinylog.writer               = coloredconsole
+   tinylog.writer.format        = <log format - see tinylog documentation>  
+   tinylog.writer.preLevelTag   = <pre level custom tag>
+   tinylog.writer.postLevelTag  = <post level custom tag>
+   tinylog.writer.preInfo       = <pre level custom tag replacement>
+   tinylog.writer.postInfo      = <post level custom tag replacement>
    
 EXAMPLE:    
-   tinylog.writer                         = coloredconsole
-   tinylog.writerColConsole.format        = [[preLevelTag]] {{level}|min-size=7} [[postLevelTag]]  
-   tinylog.writerColConsole.preLevelTag   = [[preLevelTag]]
-   tinylog.writerColConsole.postLevelTag  = [[postLevelTag]]
-   tinylog.writerColConsole.preInfo       = \u001B[32m
-   tinylog.writerColConsole.postInfo      = \u001B[0m
+   tinylog.writer               = coloredconsole
+   tinylog.writer.format        = [[preLevelTag]] {{level}|min-size=7} [[postLevelTag]]  
+   tinylog.writer.preLevelTag   = [[preLevelTag]]
+   tinylog.writer.postLevelTag  = [[postLevelTag]]
+   tinylog.writer.preInfo       = \u001B[32m
+   tinylog.writer.postInfo      = \u001B[0m
 ``` 
 
 ### Custom tag coloring
-The Tinylog ColoredConsole enables you to **define up to 5 custom tags (pre- and post, respectively)**. This allows more flexible coloring of individual source code generated outputs (init phases, shutdown, uncaught exception, etc.). All custom tags can be individualized to adapt to your code.
+The tinylog coloredconsole enables you to **define up to 5 custom tags (pre- and post, respectively)**. This allows more flexible coloring of individual source code generated outputs (init phases, shutdown, uncaught exception, etc.). All custom tags can be individualized to adapt to your code.
 
 The following listing demonstrates how to colorize the tags as well as the content (here in green), quite nice for status changes such as init phases. It uses "<====" as pre-tag (and "====>" as post-tag respectively). The tags as well as the content are colored green here (pre-/post-tags are distinguished via first/last character, which is replaced with '=' for output).
 
 ```  
 DEFINITION:
-   tinylog.writer                          = coloredconsole
-   tinylog.writerColConsole.preCustomTag4  = <====
-   tinylog.writerColConsole.preCustom4     = \u001B[32m=====
-   tinylog.writerColConsole.postCustomTag4 = ====>
-   tinylog.writerColConsole.postCustom4    = \u001B[32m=====\u001B[37m
+   tinylog.writer                = coloredconsole
+   tinylog.writer.preCustomTag4  = <====
+   tinylog.writer.preCustom4     = \u001B[32m=====
+   tinylog.writer.postCustomTag4 = ====>
+   tinylog.writer.postCustom4    = \u001B[32m=====\u001B[37m
    
 EXAMPLE:    
-   tinylog.writer                          = coloredconsole
-   tinylog.writerColConsole.preCustomTag4  = <====
-   tinylog.writerColConsole.preCustom4     = \u001B[32m=====
-   tinylog.writerColConsole.postCustomTag4 = ====>
-   tinylog.writerColConsole.postCustom4    = \u001B[32m=====\u001B[37m
+   tinylog.writer                = coloredconsole
+   tinylog.writer.preCustomTag4  = <====
+   tinylog.writer.preCustom4     = \u001B[32m=====
+   tinylog.writer.postCustomTag4 = ====>
+   tinylog.writer.postCustom4    = \u001B[32m=====\u001B[37m
 ```
 
 ## Examples
@@ -85,12 +85,12 @@ Note: To make sure your IDE takes all files into account (notably the ColoredCon
 
 
 ## Comments
-- **Versioning**. The tinylog-coloredconsole versioning uses the original Tinylog versions for clarity about the underlying libary, e.g. tinylog-coloredconsole in version 1.3.1 uses Tinylog v1.3.1 (see [pom.xml](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/pom.xml)). If needed, you may simply exclude it and use another Tinylog version.
+- **Versioning**. The tinylog coloredconsole versioning uses the original tinylog versions for clarity about the underlying libary, e.g. tinylog-coloredconsole in version 1.3.1 uses tinylog v1.3.1 (see [pom.xml](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/pom.xml)). If needed, you may simply exclude it and use another tinylog version.
 - **Remove custom tags for file writing**. Your source-code generated custom tags are processed for the console but are still written to file. In order to remove those tags, see the corresponding [tinylog-tagging-filewriter](https://github.com/tobiasrm/tinylog-tagging-filewriter) and [tinylog-tagging-rollingfilewriter](https://github.com/tobiasrm/tinylog-tagging-rollingfilewriter). They allow you to define 10 custom tags and replacements (e.g. the five pre-/custom tags of used by tinylog-coloredconsole).
 
 
-## Other Tinylog writer extensions
-See also my other Tinylog writer extension projects:
+## Other tinylog writer extensions
+See also my other tinylog writer extension projects:
 
 - [tinylog-tagging-filewriter](https://github.com/tobiasrm/tinylog-tagging-filewriter) extension to remove custom strings (e.g. the tinylog-coloredconsole custom tags) before writing to file (based on filewriter)
 - [tinylog-tagging-rollingfilewriter](https://github.com/tobiasrm/tinylog-tagging-rollingfilewriter) extension to remove custom strings (e.g. the tinylog-coloredconsole custom tags) before writing to file (based on rollingfilewriter)
