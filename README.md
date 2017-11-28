@@ -65,6 +65,13 @@ Five custom tags are available as shown below with five example logs. NOTE that 
 
 ![](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/screenshot_coloring_custom_tags.png?raw=true) 
 
+### Further examples
+The following example illustrate how I am using tinylog coloredconsole in a software project I am currently working on, the DTP (data traceability platform) with a blockchain developed from scratch (using a federation consensus):
+
+- [Operation status phases](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/example_operation_status.png?raw=true): The reached DTP init / shutdown phases are highlighed.
+- [Key event highlighting](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/example_key_events.png?raw=true): A key event is highlighted, i.e. the DTP detects an empty database, leading to an initialization (injection of blockchain genesis block plus platform provider block).
+- [Configuration print out](https://github.com/tobiasrm/tinylog-coloredconsole/blob/master/files/example_config_print.png?raw=true): The actually used DTP configuration are printed out for information purposes (here only core layer aka DTP Runtime Environment and general server configs).
+ 
 ## Try it out
 You can reproduce the colored log demo by running  `mvn clean install`  and then  `java -jar target/tinylog-coloredconsole-1.3.1-executable.jar` 
 
